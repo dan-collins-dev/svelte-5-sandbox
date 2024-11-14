@@ -3,9 +3,7 @@
 </svelte:head>
 
 <script>
-    export let data
+    import README from "../posts/post-1.svx"
 </script>
 
-<pre>
-    {JSON.stringify(data, null, 2)}
-</pre>
+<README />

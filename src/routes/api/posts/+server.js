@@ -1,25 +1,19 @@
 import { json } from '@sveltejs/kit'
-import { base } from '$app/paths';
+// import { base } from '$app/paths';
 // import { Post } from '$lib/types'
 
 async function getPosts() {
 	let posts = []
 
-	const paths = import.meta.glob('/src/posts/*.md', { eager: true })
-    // console.log(paths)
+	const paths = import.meta.glob('/src/posts/*.svx', { eager: true })
 
 	for (const path in paths) {
 		const file = paths[path]
-		const slug = path.split(`${base}/`).at(-1)?.replace('.md', '')
+		const slug = path.split('/').at(-1)?.replace('.svx', '')
         const metadata = file.metadata 
-        const post = {...metadata, slug}
-        posts.push(post);
-        
 
-		if (file && typeof file === 'object' && 'metadata' in file && slug) {
-			const post = { ...metadata, slug }
-			post.published && posts.push(post)
-		}
+        const post = {...metadata, slug}
+		if (post.published) posts.push(post)
 	}
 
 	posts = posts.sort((first, second) =>

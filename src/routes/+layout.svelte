@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import {base} from "$app/paths"
 	let { children } = $props();
 </script>
 
@@ -9,7 +10,7 @@
 	</div>
 	<nav class="ml-auto pr-3">
 		<ul>
-			<li><a class="hover:bg-slate-900" aria-label="Link to the home page" href="/">Home</a></li>
+			<li><a class="hover:bg-slate-900" aria-label="Link to the home page" href="{base}/">Home</a></li>
 		</ul>
 	</nav>
 </header>
