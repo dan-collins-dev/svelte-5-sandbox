@@ -1,4 +1,5 @@
 import { json } from '@sveltejs/kit'
+import { base } from '$app/paths';
 // import { Post } from '$lib/types'
 
 async function getPosts() {
@@ -9,7 +10,7 @@ async function getPosts() {
 
 	for (const path in paths) {
 		const file = paths[path]
-		const slug = path.split('/').at(-1)?.replace('.md', '')
+		const slug = path.split(`${base}/`).at(-1)?.replace('.md', '')
         const metadata = file.metadata 
         const post = {...metadata, slug}
         posts.push(post);
