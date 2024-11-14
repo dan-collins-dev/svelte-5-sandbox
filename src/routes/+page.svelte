@@ -2,4 +2,10 @@
     <title>Svelte 5 Sandbox</title>
 </svelte:head>
 
-<h1 class="text-center">Svelte 5 Sandbox</h1>
+<script>
+    export let data
+</script>
+
+<pre>
+    {JSON.stringify(data, null, 2)}
+</pre>
