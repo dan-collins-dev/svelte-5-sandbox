@@ -12,8 +12,8 @@ published: true
 
 Hey friends! 👋
 
-```ts
-function greet(name: string) {
+```js
+function greet(name) {
 	console.log(`Hey ${name}! 👋`)
 }
 ```
